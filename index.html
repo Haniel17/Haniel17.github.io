@@ -13,7 +13,7 @@
             background-color: #0f172a;
             color: #e2e8f0;
             overflow-x: hidden; /* Prevent horizontal scroll */
-        } 
+        }
 
         #background-wrap {
             position: fixed;
@@ -128,7 +128,6 @@
         .project-card { transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease, margin 0.3s ease, padding 0.3s ease; }
         .project-card.hidden { transform: scale(0.95); opacity: 0; width: 0 !important; padding: 0 !important; margin: 0 !important; border: none; }
         .filter-btn.active { background-color: #22d3ee; color: #0f172a; }
-
     </style>
 </head>
 <body>
@@ -199,47 +198,41 @@
         
         <section id="timeline" class="py-24">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text reveal">Experience & Internships</h2>
-                <div class="relative border-l border-cyan-500 max-w-3xl mx-auto space-y-12 pl-8">
-
-    <!-- AI Trainer -->
-                    <div class="reveal relative">
-                        <div class="absolute -left-4 top-2 w-3 h-3 bg-cyan-500 rounded-full border border-slate-900"></div>
-                            <h3 class="text-2xl font-bold text-white">AI Trainer</h3>
-                            <span class="text-sm text-cyan-400 font-semibold">2025 - Present</span>
-                            <p class="text-slate-300 font-semibold">Skill Development Centre, GMVHSS for Girls, Thrissur</p>
-                            <p class="text-slate-400">Served as a Resource Person for a session on Artificial Intelligence in Robotics, contributing expert insights and enhancing the learning experience for students.</p>
-                        </div>
-
-    <!-- PCB Designing -->
-                    <div class="reveal relative">
-                        <div class="absolute -left-4 top-2 w-3 h-3 bg-cyan-500 rounded-full border border-slate-900"></div>
-                        <h3 class="text-2xl font-bold text-white">PCB Designing</h3>
-                        <span class="text-sm text-cyan-400 font-semibold">Jul 2025</span>
-                        <p class="text-slate-300 font-semibold">Tech Manteraz</p>
-                        <p class="text-slate-400">Completed a 7 day internship on PCB Designing, gaining foundational knowledge in hardware construction for projects.</p>
+            <div class="horizontal-scroller flex space-x-8 overflow-x-auto pb-8 -mx-6 px-6 pt-4">
+                <div class="reveal glass-card rounded-xl p-8 flex-shrink-0 w-96">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h3 class="text-2xl font-bold text-white">AI Trainer</h3>
+                        <span class="text-sm text-cyan-400 font-semibold flex-shrink-0">2025 - Present</span>
                     </div>
-
-    <!-- NLP Internship -->
-                    <div class="reveal relative">
-                        <div class="absolute -left-4 top-2 w-3 h-3 bg-cyan-500 rounded-full border border-slate-900"></div>
-                        <h3 class="text-2xl font-bold text-white">Natural Language Processing</h3>
-                        <span class="text-sm text-cyan-400 font-semibold">Jun 2025 - Jul 2025</span>
-                        <p class="text-slate-300 font-semibold">ICT Academy of Kerala</p>
-                        <p class="text-slate-400">Completed a one-month internship program focused on NLP projects, including sentiment analysis and spam detection models.</p>
-                    </div>
-
-    <!-- Public Relations Officer -->
-                    <div class="reveal relative">
-                        <div class="absolute -left-4 top-2 w-3 h-3 bg-cyan-500 rounded-full border border-slate-900"></div>
-                        <h3 class="text-2xl font-bold text-white">Public Relations Officer</h3>
-                        <span class="text-sm text-cyan-400 font-semibold">Sep 2023 - Aug 2024</span>
-                        <p class="text-slate-300 font-semibold">AIDA (Artificial Intelligence and Data Science Association)</p>
-                        <p class="text-slate-400">Organized a Hands-on workshop on AI and Metaverse with the help of Unique World Robotics at Jyothi Engineering College.</p>
-                    </div>
-
+                    <p class="text-slate-300 mb-4 font-semibold">Skill Development Centre, GMVHSS for Girls, Thrissur</p>
+                    <p class="text-slate-400">Served as a Resource Person for a session on Artificial Intelligence in Robotics, contributing expert insights and enhancing the learning experience for students.</p>
                 </div>
+                <div data-modal-target="#internship-2-modal" class="modal-trigger glass-card rounded-xl p-8 cursor-pointer reveal flex-shrink-0 w-96">
+                     <div class="flex justify-between items-baseline mb-2">
+                        <h3 class="text-2xl font-bold text-white">PCB Designing</h3>
+                        <span class="text-sm text-cyan-400 font-semibold flex-shrink-0">Jul 2025</span>
+                    </div>
+                    <p class="text-slate-300 mb-4 font-semibold">Tech Manteraz</p>
+                    <p class="text-slate-400">Completed a 7 day internship on PCB Designing, gaining foundational knowledge in hardware construction for projects.</p>
+                </div>
+                <div data-modal-target="#internship-1-modal" class="modal-trigger glass-card rounded-xl p-8 cursor-pointer reveal flex-shrink-0 w-96">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h3 class="text-2xl font-bold text-white">Natural Language Processing</h3>
+                        <span class="text-sm text-cyan-400 font-semibold flex-shrink-0">Jun 2025 - Jul 2025</span>
+                    </div>
+                    <p class="text-slate-300 mb-4 font-semibold">ICT Academy of Kerala</p>
+                    <p class="text-slate-400">Completed a one-month internship program focused on NLP projects, including sentiment analysis and spam detection models.</p>
+                </div>
+                <div class="glass-card rounded-xl p-8 reveal flex-shrink-0 w-96">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h3 class="text-2xl font-bold text-white">Public Relations Officer</h3>
+                        <span class="text-sm text-cyan-400 font-semibold flex-shrink-0">Sep 2023 - Aug 2024</span>
+                    </div>
+                    <p class="text-slate-300 mb-4 font-semibold">AIDA (Artificial Intelligence and Data Science Association)</p>
+                    <p class="text-slate-400">Organized a Hands-on workshop on AI and Metaverse with the help of Unique World Robotics at Jyothi Engineering College.</p>
+                </div>
+            </div>
         </section>
-
 
         <section id="projects" class="py-24">
             <div class="reveal">
@@ -250,7 +243,7 @@
                     <button class="filter-btn bg-slate-700 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300" data-filter="hardware">Hardware</button>
                     <button class="filter-btn bg-slate-700 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300" data-filter="web">Web</button>
                 </div>
-                <div id="project-grid" class="grid md:grid-cols-2 gap-8">
+                <div id="project-grid" class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div class="project-card modal-trigger glass-card rounded-xl overflow-hidden cursor-pointer" data-modal-target="#project-1-modal" data-category="ai-ml web">
                         <img src="https://placehold.co/600x400/1e293b/e2e8f0?text=PrepHub" alt="Project 1" class="w-full h-48 object-cover">
                         <div class="p-6">
@@ -447,4 +440,3 @@
     </script>
 </body>
 </html>
-
