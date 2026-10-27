@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Off track | Haniel</title>
+  <script>
+    (() => {
+      let theme = null;
+      try { theme = localStorage.getItem("haniel-theme-blackblue"); } catch {}
+      document.documentElement.dataset.theme = theme === "light" ? "light" : "dark";
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23111522'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Arial Black,Arial' font-weight='900' font-size='32' fill='%23DCE3EF'%3EH%3C/text%3E%3C/svg%3E">
+  <style>
+    :root { --bg: #F5F8FC; --text: #0B1119; --muted: #526174; --line: rgba(16,24,38,.14); --asphalt: #252B35; --gravel: rgba(176,150,112,.28); --gravel-dot: rgba(120,96,64,.35); --accent: #4DA3FF; --accent-text: #176BAF; --red: #E10600; color-scheme: light; }
+    :root[data-theme="dark"] { --bg: #111522; --text: #DCE3EF; --muted: #98A9C4; --line: rgba(152,169,196,.18); --asphalt: #2A3245; --gravel: rgba(176,150,112,.16); --gravel-dot: rgba(214,190,150,.22); --accent-text: #8EC5FF; color-scheme: dark; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body { display: grid; min-height: 100svh; place-items: center; overflow: hidden; color: var(--text); background: radial-gradient(ellipse at 50% 30%, rgba(77,163,255,.14), transparent 55%), var(--bg); font-family: "Instrument Sans", sans-serif; }
+    main { position: relative; display: grid; justify-items: center; gap: 22px; width: min(100% - 40px, 760px); padding: 40px 0; text-align: center; }
+    .scene { width: min(100%, 620px); height: auto; overflow: visible; }
+    .track { fill: none; stroke: var(--asphalt); stroke-width: 46; stroke-linecap: round; }
+    .track-edge { fill: none; stroke: rgba(255,255,255,.85); stroke-width: 2; }
+    .kerb { fill: none; stroke: #FFFFFF; stroke-width: 9; }
+    .kerb-red { fill: none; stroke: var(--red); stroke-width: 9; stroke-dasharray: 12 12; }
+    .gravel { fill: var(--gravel); }
+    .gravel-dots circle { fill: var(--gravel-dot); }
+    .skid { fill: none; stroke: rgba(11,14,20,.55); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 420; stroke-dashoffset: 420; animation: skid 1.6s cubic-bezier(.2,.7,.3,1) .5s forwards; }
+    :root[data-theme="dark"] .skid { stroke: rgba(0,0,0,.6); }
+    .car { offset-path: path("M60 150 C170 150 250 150 330 146 C400 142 430 170 452 196 C470 218 470 238 486 248"); offset-rotate: auto; offset-distance: 0%; animation: spin-off 1.8s cubic-bezier(.25,.8,.3,1) .4s forwards; }
+    .car-body { animation: car-spin 1.8s cubic-bezier(.25,.8,.3,1) .4s forwards; transform-origin: 0 0; }
+    .livery { fill: var(--accent); }
+    .tyre, .cockpit { fill: #0B0E14; }
+    .stripe { fill: none; stroke: #FFFFFF; stroke-width: 1.3; }
+    .dust circle { fill: rgba(176,150,112,.45); opacity: 0; transform-box: fill-box; transform-origin: center; animation: dust 1.4s ease-out 1.5s forwards; }
+    .dust circle:nth-child(2) { animation-delay: 1.6s; }
+    .dust circle:nth-child(3) { animation-delay: 1.7s; }
+    @keyframes spin-off { to { offset-distance: 100%; } }
+    @keyframes car-spin { 0%, 45% { transform: rotate(0); } 100% { transform: rotate(-200deg); } }
+    @keyframes skid { to { stroke-dashoffset: 0; } }
+    @keyframes dust { 0% { opacity: .9; transform: scale(.3); } 100% { opacity: 0; transform: scale(2.4); } }
+    .code { margin: 0; color: var(--accent-text); font-size: 12px; font-weight: 700; letter-spacing: .32em; text-transform: uppercase; }
+    h1 { margin: 0; font: 800 clamp(52px, 10vw, 104px)/.9 "Archivo", sans-serif; letter-spacing: -.07em; font-variation-settings: "wdth" 112, "wght" 800; }
+    p.lede { max-width: 440px; margin: 0; color: var(--muted); font-size: 17px; line-height: 1.55; }
+    .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 6px; }
+    .button { display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 22px; border-radius: 999px; font-size: 14px; font-weight: 700; text-decoration: none; transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease; }
+    .button--primary { color: #07111D; background: var(--accent); box-shadow: 0 8px 20px rgba(77,163,255,.25); }
+    .button--ghost { border: 1px solid var(--line); color: var(--text); }
+    .button:hover { transform: translateY(-3px); }
+    .timing { display: inline-flex; gap: 14px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    .timing b { color: var(--red); }
+    @media (prefers-reduced-motion: reduce) { .car, .car-body, .skid, .dust circle { animation-duration: .01s; animation-delay: 0s; } }
+  </style>
+</head>
+<body>
+  <main>
+    <svg class="scene" viewBox="0 0 620 300" aria-hidden="true">
+      <path class="gravel" d="M400 170 C470 160 560 190 590 240 C600 262 560 290 500 288 C430 286 380 262 384 222 C386 196 380 176 400 170Z"/>
+      <g class="gravel-dots"><circle cx="440" cy="210" r="2"/><circle cx="470" cy="240" r="1.6"/><circle cx="520" cy="220" r="2.2"/><circle cx="545" cy="258" r="1.8"/><circle cx="500" cy="270" r="1.5"/><circle cx="420" cy="250" r="1.9"/><circle cx="560" cy="232" r="1.4"/><circle cx="480" cy="196" r="1.6"/></g>
+      <path class="track" d="M30 150 H300 C360 150 380 120 400 96 C420 72 450 60 600 60"/>
+      <path class="track-edge" d="M30 128 H300 C350 128 368 102 386 80 C406 56 440 38 600 38"/>
+      <path class="track-edge" d="M30 172 H300 C370 172 394 140 414 114 C432 90 458 82 600 82"/>
+      <path class="kerb" d="M318 174 C370 170 392 142 412 116"/>
+      <path class="kerb-red" d="M318 174 C370 170 392 142 412 116"/>
+      <path class="skid" d="M300 146 C380 140 420 168 450 196 C468 214 472 236 488 246"/>
+      <path class="skid" d="M300 156 C384 152 414 182 440 206 C456 222 462 240 478 252"/>
+      <g class="car">
+        <g class="car-body">
+          <g transform="scale(1.5)"><rect class="tyre" x="8" y="-9" width="6" height="4" rx="1.2"/><rect class="tyre" x="8" y="5" width="6" height="4" rx="1.2"/><rect class="tyre" x="-15" y="-9.6" width="7.5" height="4.6" rx="1.2"/><rect class="tyre" x="-15" y="5" width="7.5" height="4.6" rx="1.2"/><rect class="livery" x="16.5" y="-6.5" width="3.2" height="13" rx=".8"/><path class="livery" d="M-16 0C-16-4-12.5-5-8.5-5L2-4C6-3.2 10-2 17-1L19.5 0 17 1C10 2 6 3.2 2 4L-8.5 5C-12.5 5-16 4-16 0Z"/><rect class="livery" x="-20.5" y="-6" width="3.4" height="12" rx=".8"/><path class="stripe" d="M-14 0H15"/><ellipse class="cockpit" cx="-2.5" cy="0" rx="3.2" ry="1.9"/></g>
+        </g>
+      </g>
+      <g class="dust"><circle cx="486" cy="248" r="14"/><circle cx="500" cy="240" r="10"/><circle cx="472" cy="256" r="11"/></g>
+    </svg>
+    <p class="code">Error 404 · Lap invalidated</p>
+    <h1>You’ve gone off track.</h1>
+    <p class="lede">This page doesn’t exist, or it spun into the gravel. Let’s get you back to the pit lane.</p>
+    <div class="actions">
+      <a class="button button--primary" href="./#main">Back to the pit lane ↗</a>
+      <a class="button button--ghost" href="./#work">See my work</a>
+    </div>
+    <span class="timing">Track limits <b>Exceeded</b> · Time deleted</span>
+  </main>
+</body>
+</html>
